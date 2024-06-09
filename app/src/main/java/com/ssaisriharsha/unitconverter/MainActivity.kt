@@ -1,6 +1,7 @@
 package com.ssaisriharsha.unitconverter
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,6 +51,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter() {
+    val context = LocalContext.current
     Column(
         modifier=Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -77,13 +80,49 @@ fun UnitConverter() {
                 }
             }
             DropdownMenu(expanded = false, onDismissRequest = {}) {
-                DropdownMenuItem(text = {Text("Item 1")}, onClick = { /*TODO*/ })
+                DropdownMenuItem(
+                    text = {Text("Centimeter")},
+                    onClick = {},
+                )
+                DropdownMenuItem(
+                    text = { Text("Meter") },
+                    onClick = { /*TODO*/ }
+                )
+                DropdownMenuItem(
+                    text = { Text("Millimeter")},
+                    onClick = { /*TODO*/ }
+                )
+                DropdownMenuItem(
+                    text = { Text("Kilometer") },
+                    onClick = { /*TODO*/ }
+                )
             }
             Spacer(modifier=Modifier.width(16.dp))
             Box {
                 Button (onClick = {}) {
                     Text("Select")
                     Icon(imageVector=Icons.Default.ArrowDropDown, contentDescription = "")
+                }
+                DropdownMenu(
+                    expanded=false,
+                    onDismissRequest={}
+                ) {
+                    DropdownMenuItem(
+                        text = { Text("Centimeter") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text= {Text("Meter")},
+                        onClick = {}
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Millimeter") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Kilometer") },
+                        onClick = { /*TODO*/ }
+                    )
                 }
             }
         }
